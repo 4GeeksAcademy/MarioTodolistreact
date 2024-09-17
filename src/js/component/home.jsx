@@ -1,26 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+function Home() {
+    const [task, setTask] = useState("");
+    const [tasks, setTasks] = useState([]);
+  
+    // Agregar nueva tarea
+    const addTask = (e) => {
+      if (e.key === "Enter" && task.trim() !== "") {
+        setTasks([...tasks, task]);
+        setTask(""); // Limpiar input después de agregar tarea
+      }
+    };
+  
+    // Eliminar tarea
+    const deleteTask = (index) => {
+      const newTasks = tasks.filter((_, i) => i !== index);
+      setTasks(newTasks);
+    };
+  
+    return (
+      <div className="todo-container">
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
-};
-
+        <h1>TO-DO</h1>
+        <input
+          type="text"
+          placeholder="Agregar una tarea"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          onKeyDown={addTask} // Agregar tarea al presionar Enter
+        />
+        <ul>
+          {tasks.map((t, index) => (
+            <li key={index}>
+              {t}
+              <span className="delete-btn" onClick={() => deleteTask(index)}>
+                ❌
+              </span>
+            </li>
+          ))}
+        </ul>
+        {tasks.length === 0 && <p>No hay tareas, agregar tareas.</p>}
+      </div>
+    );
+  }
 export default Home;
+

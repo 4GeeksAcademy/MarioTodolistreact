@@ -1,12 +1,55 @@
+body {
+    margin: 0;
+    height: 300vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://i.etsystatic.com/12327012/r/il/dd408c/4069570824/il_794xN.4069570824_b68g.jpg');
+    background-size: cover; /* La imagen cubrirá todo el fondo */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
 
-/* 
 
-    You can write your own styles here...
+.todo-container {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+    font-family: cursive;
     
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .delete-btn {
+    cursor: pointer;
+    color: red;
+    margin-left: 10px;
+  }
+  
+  p {
+    color: #6c02f7;
+  }
 
-*/
